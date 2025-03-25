@@ -56,11 +56,13 @@ nav {
   opacity: 0.8;
   right: 0px;
 }
+.searchBox button:hover svg,
 .searchBox input:hover + button svg {
   border-radius: 0;
   border-top-right-radius: 60%;
   border-bottom-right-radius: 60%;
   padding: 22px;
+  right: 0px;
 }
 .focused input {
   border: 1px solid black;

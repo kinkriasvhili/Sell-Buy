@@ -8,7 +8,6 @@ export function ButtonWIcon({ text, icon, iconSize, name, afterEffect }) {
       ${name == "wht-btn" ? styles.signIn : ""} 
       ${styles[afterEffect]}`}
     >
-      {console.log(afterEffect + name)}
       {text ? text : ""}
       <FontAwesomeIcon icon={icon} size={iconSize} />
     </button>

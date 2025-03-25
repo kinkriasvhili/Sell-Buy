@@ -4,7 +4,6 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 export default function Search() {
   const [inputFocus, setInputFocus] = useState(false);
-  console.log(inputFocus);
   return (
     <div
       className={`${styles.searchBox} flex-center ${

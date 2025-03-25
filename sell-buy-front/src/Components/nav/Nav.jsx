@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Search from "./Search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
-export default function Nav({ user, setUser }) {
+export default function Nav() {
   return (
     <nav>
       <div className={styles.leftCont}>
@@ -24,7 +24,7 @@ export default function Nav({ user, setUser }) {
             <FontAwesomeIcon icon={faUser} size="1x" />
           </button>
         </Link>
-        <Link to={`/${user}/cart`}>
+        <Link to={`/guest/cart`}>
           <button className={`linked-btn flex-center`}>
             {" "}
             <FontAwesomeIcon icon={faShoppingCart} size="1x" /> {/* Cart */}

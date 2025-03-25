@@ -1,68 +1,107 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-color: #f1641e;
+  --primary-hover-color: #ed6521;
+  --primary-text-color: #222;
+  --white-btn-color: #ffffff;
+  --white-btn-hover-color: #0e0e0e17;
+  --linked-btn-hover-color: #ccebff;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* Reset margins, paddings, and box-sizing */
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Remove default body styles */
+body {
+  font-family: sans-serif; /* Set your preferred font */
+  line-height: 1.5; /* Improve readability */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Set span default styles */
+span {
+  color: var(--primary-text-color);
+  font-size: 13px;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default button styles */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  all: unset;
+  display: inline-block;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: padding 0.1s ease-in-out, background-color 0.1s ease-in-out;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Remove "a" default styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove default input and textarea styles */
+input,
+textarea {
+  border: none;
+  outline: none;
+  font: inherit;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Set center div */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* white button hover */
+.wht-btn {
+  padding: 15px 0; /* Initial padding */
+  border-radius: 25px;
+  background-color: var(--white-btn-color);
+}
+
+.wht-btn:hover {
+  padding: 15px 25px; /* Increase left & right padding */
+  background-color: var(--white-btn-hover-color);
+}
+
+/* linked button */
+.linked-btn {
+  padding: 0px;
+  border-radius: 100%;
+  background-color: var(--white-btn-color);
+}
+
+.linked-btn:hover {
+  padding: 20px; /* Increase left & right padding */
+  background-color: var(--linked-btn-hover-color);
+}
+
+div {
+  width: 100%;
+  height: 90vh;
+}
+
+.test {
+  font-family: "Love Light", sans-serif;
+  font-size: 50px;
+  color: var(--primary-color);
+  font-weight: bold;
 }

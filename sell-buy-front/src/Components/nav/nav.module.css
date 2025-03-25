@@ -1,0 +1,73 @@
+@import url("../../index.css");
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 5vw;
+}
+
+.logo {
+  font-family: "Love Light", sans-serif;
+  font-size: 50px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.middleCont {
+  width: 40%;
+}
+.searchBox input {
+  border: 1px solid black;
+  border-radius: 50px;
+  width: 100%;
+  padding: 10px;
+}
+.rightCont {
+  gap: 1vw;
+}
+.signIn {
+  border: 2px dashed var(--white-btn-hover-color);
+}
+.signIn svg {
+  margin-left: 10px;
+}
+
+/* searchBox */
+.searchBox {
+  position: relative;
+}
+.searchBox input {
+  padding: 20px;
+  padding-right: 70px;
+  border: 1px solid var(--white-btn-hover-color);
+}
+
+.searchBox button {
+  position: absolute;
+  right: 10px;
+  transition: 0.4s;
+}
+.searchBox button svg {
+  color: white;
+  background-color: var(--primary-color);
+  padding: 15px;
+  border-radius: 100%;
+  font-size: 20px;
+}
+.searchBox input:hover + button {
+  opacity: 0.8;
+  right: 0px;
+}
+.searchBox input:hover + button svg {
+  border-radius: 0;
+  border-top-right-radius: 60%;
+  border-bottom-right-radius: 60%;
+  padding: 22px;
+}
+.focused input {
+  border: 1px solid black;
+}
+
+.focused input:hover + button {
+  opacity: 1;
+}

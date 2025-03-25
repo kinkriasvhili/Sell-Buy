@@ -5,6 +5,7 @@
   --white-btn-color: #ffffff;
   --white-btn-hover-color: #0e0e0e17;
   --linked-btn-hover-color: #ccebff;
+  --blue-color: navy;
 }
 
 /* Reset margins, paddings, and box-sizing */
@@ -34,14 +35,6 @@ ol {
   list-style: none;
 }
 
-/* Remove default button styles */
-button {
-  all: unset;
-  display: inline-block;
-  cursor: pointer;
-  transition: padding 0.1s ease-in-out, background-color 0.1s ease-in-out;
-}
-
 /* Remove "a" default styles */
 a {
   text-decoration: none;
@@ -63,6 +56,48 @@ img {
   display: block;
 }
 
+/* fontawsom */
+svg {
+  color: var(--blue-color);
+}
+
+/* Remove default button styles */
+button {
+  all: unset;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+/* white button */
+.wht-btn {
+  background-color: transparent;
+  padding: 15px 20px;
+  border-radius: 25px;
+  color: inherit;
+  overflow: hidden;
+}
+.wht-btn:hover {
+  color: var(--text-hover-color);
+}
+.wht-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background-color: var(--white-btn-hover-color);
+  transition: width 0.1s ease-in-out, left 0.1s ease-in-out;
+  z-index: -1;
+  border-radius: 25px;
+}
+.wht-btn:hover::before {
+  width: 100%;
+  left: 0;
+}
+
 /* Set center div */
 .flex-center {
   display: flex;
@@ -70,38 +105,59 @@ img {
   align-items: center;
 }
 
-/* white button hover */
-.wht-btn {
-  padding: 15px 0; /* Initial padding */
-  border-radius: 25px;
-  background-color: var(--white-btn-color);
-}
-
-.wht-btn:hover {
-  padding: 15px 25px; /* Increase left & right padding */
-  background-color: var(--white-btn-hover-color);
-}
-
 /* linked button */
 .linked-btn {
-  padding: 0px;
   border-radius: 100%;
-  background-color: var(--white-btn-color);
+  background-color: inherit;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  z-index: 1;
 }
-
-.linked-btn:hover {
-  padding: 20px; /* Increase left & right padding */
+.linked-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
   background-color: var(--linked-btn-hover-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: width 0.2s ease, height 0.2s ease, transform 0.2s ease;
+  z-index: -1;
 }
 
-div {
-  width: 100%;
-  height: 90vh;
+.linked-btn:hover::before {
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%) scale(1);
 }
 
-.test {
-  font-family: "Love Light", sans-serif;
-  font-size: 50px;
-  color: var(--primary-color);
-  font-weight: bold;
+/* Tooltip below the button */
+.linked-btn::after {
+  content: "Cart";
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--blue-color);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.linked-btn:hover::after {
+  opacity: 1; /* Make it visible */
+  transform: translateX(-50%) translateY(-5px); /* Slight lift effect */
 }

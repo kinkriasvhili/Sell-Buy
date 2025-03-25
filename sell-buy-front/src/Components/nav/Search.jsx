@@ -1,5 +1,5 @@
 import styles from "./nav.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ButtonWIcon } from "../Ui/Buttons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 export default function Search() {
@@ -19,9 +19,7 @@ export default function Search() {
         }}
         type="text"
       />
-      <button className={`flex-center `}>
-        <FontAwesomeIcon icon={faMagnifyingGlass} size="1x" />
-      </button>
+      <ButtonWIcon icon={faMagnifyingGlass} iconSize="1x" />
     </div>
   );
 }

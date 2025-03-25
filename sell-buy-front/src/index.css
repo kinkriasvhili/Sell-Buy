@@ -1,3 +1,7 @@
+@import "@fontsource/sour-gummy";
+@import "@fontsource/dm-serif-text"; /* Default (Regular) */
+@import "@fontsource/roboto-flex"; /* Default (Regular) */
+
 :root {
   --primary-color: #f1641e;
   --primary-hover-color: #ed6521;
@@ -17,7 +21,7 @@
 
 /* Remove default body styles */
 body {
-  font-family: sans-serif; /* Set your preferred font */
+  font-family: "Roboto Flex", "Sour Gummy", sans-serif;
   line-height: 1.5; /* Improve readability */
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
@@ -60,7 +64,10 @@ img {
 svg {
   color: var(--blue-color);
 }
-
+/* general container */
+.mainContainer {
+  padding: 20px 5vw;
+}
 /* Remove default button styles */
 button {
   all: unset;

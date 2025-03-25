@@ -1,0 +1,16 @@
+@import "@fontsource/sour-gummy";
+
+.signIn {
+  border: 2px dashed var(--white-btn-hover-color);
+}
+.signIn svg {
+  margin-left: 10px;
+}
+.favoriteBtn:after {
+  font-family: "Sour Gummy";
+  content: "Favorite";
+}
+.cartBtn:after {
+  font-family: "Sour Gummy";
+  content: "Cart";
+}

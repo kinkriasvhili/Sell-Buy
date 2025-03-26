@@ -24,6 +24,11 @@
   margin-right: -10vw;
   color: var(--blue-color);
 }
+.registerForm {
+  position: relative;
+  gap: 0;
+  margin-bottom: 20px;
+}
 .leftSide h2 {
   font-size: 2.5rem;
 }
@@ -32,6 +37,9 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+.registerForm form {
+  gap: 20px;
 }
 .leftSide form div {
   display: flex;
@@ -83,6 +91,7 @@
   border: 2px dashed var(--blue-color);
   margin-bottom: -10px;
 }
+
 .signButton:hover {
   border-color: var(--primary-color);
   color: var(--primary-color);

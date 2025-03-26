@@ -13,3 +13,17 @@ export function ButtonWIcon({ text, icon, iconSize, name, afterEffect }) {
     </button>
   );
 }
+
+export function FormButton({ handleClick, type, className, text }) {
+  return (
+    <button
+      onClick={(e) => {
+        handleClick(e);
+      }}
+      type={type}
+      className={className}
+    >
+      {text}
+    </button>
+  );
+}

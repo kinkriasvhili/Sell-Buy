@@ -5,11 +5,16 @@
 :root {
   --primary-color: #f1641e;
   --primary-hover-color: #ed6521;
+  --primary-light-hover-color: #ed65218b;
+
   --primary-text-color: #222;
   --white-btn-color: #ffffff;
   --white-btn-hover-color: #0e0e0e17;
   --linked-btn-hover-color: #ccebff;
   --blue-color: navy;
+}
+#root {
+  height: 100%;
 }
 
 /* Reset margins, paddings, and box-sizing */
@@ -49,7 +54,6 @@ a {
 input,
 textarea {
   border: none;
-  outline: none;
   font: inherit;
 }
 
@@ -91,18 +95,20 @@ button {
 .wht-btn::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
   width: 0;
-  height: 100%;
-  background-color: var(--white-btn-hover-color);
-  transition: width 0.1s ease-in-out, left 0.1s ease-in-out;
+  height: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: width 0.2s ease, height 0.2s ease, transform 0.2s ease;
   z-index: -1;
-  border-radius: 25px;
+  background-color: var(--white-btn-hover-color);
 }
 .wht-btn:hover::before {
-  width: 100%;
-  left: 0;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 /* Set center div */

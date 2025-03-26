@@ -1,0 +1,103 @@
+@import url("../../index.css");
+@import "@fontsource/sour-gummy/500.css"; /* Light */
+
+.container {
+  font-family: "Sour Gummy";
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+  overflow-x: hidden;
+  min-height: 75vh;
+  max-height: 80vh;
+  overflow: hidden;
+  align-items: center;
+}
+
+.leftSide {
+  padding-left: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  width: 100%;
+  gap: 10px;
+  margin-right: -10vw;
+  color: var(--blue-color);
+}
+.leftSide h2 {
+  font-size: 2.5rem;
+}
+.leftSide form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.leftSide form div {
+  display: flex;
+  flex-direction: column;
+}
+.leftSide form input {
+  width: 100%;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid black;
+}
+.leftSide form input:focus {
+  border: none;
+  outline: 3px solid var(--primary-color);
+}
+.leftSide form input:focus + label {
+  color: var(--primary-color);
+}
+.leftSide label {
+  margin-left: 2px;
+  color: black;
+}
+
+.rightSide {
+  flex-direction: column;
+  text-align: center;
+  display: flex;
+  width: 75vw; /* Try different sizes */
+  margin-right: -15vw;
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+.svgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.svgContainer svg {
+  position: relative !important;
+  width: 100% !important;
+}
+.signButton {
+  max-width: 200px;
+  text-align: center;
+  border: 2px dashed var(--blue-color);
+  margin-bottom: -10px;
+}
+.signButton:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.signButton::before {
+  background-color: white;
+}
+.linkSpam {
+  font-size: 16px;
+}
+.linkSpam a {
+  color: var(--blue-color);
+  text-decoration: underline;
+  transition: 0.1s;
+}
+.linkSpam a:hover {
+  color: var(--primary-color);
+}

@@ -72,6 +72,9 @@ nav {
   opacity: 1;
 }
 .orders {
-  border: 1px dashed var(--white-btn-hover-color);
+  border: 2px dashed var(--white-btn-hover-color);
 }
-/*  */
+.orders:hover::before {
+  width: 130%;
+  height: 130%;
+}

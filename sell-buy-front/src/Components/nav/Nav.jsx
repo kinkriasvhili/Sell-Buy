@@ -16,7 +16,11 @@ export default function Nav() {
   const [displayNav, setDisplayNav] = useState(true);
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname == "/login" || location.pathname == "/signup") {
+    if (
+      location.pathname == "/login" ||
+      location.pathname == "/signup" ||
+      location.pathname == "/email-confrimation"
+    ) {
       setDisplayNav(false);
     } else {
       setDisplayNav(true);

@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 import { SignForm } from "../../Components/Ui/Inputs";
 import { FormButton } from "../../Components/Ui/Buttons";
 import { SignFormRightSideSvg } from "../../Components/Ui/SvgAnimations";
+import { useNavigate } from "react-router-dom";
 export default function SignIn() {
+  const navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
+    navigate("/email-confrimation");
   };
   return (
     <div className={styles.container}>

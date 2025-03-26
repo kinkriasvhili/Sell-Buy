@@ -7,6 +7,7 @@ import Cart from "./Pages/Cart/Cart.jsx";
 import AppProviders from "./Context/AppProvider.jsx";
 import Favorite from "./Pages/Favorite/Favorite.jsx";
 import Orders from "./Pages/Orders/Orders.jsx";
+import EmailConfrimation from "./Pages/EmailConfrimation/EmailConfrimation.jsx";
 function App() {
   return (
     <AppProviders>
@@ -19,6 +20,7 @@ function App() {
           <Route path={`/guest/cart`} element={<Cart />} />
           <Route path={`/guest/favorite`} element={<Favorite />} />
           <Route path={`/orders`} element={<Orders />} />
+          <Route path={`/email-confrimation`} element={<EmailConfrimation />} />
         </Routes>
       </BrowserRouter>
     </AppProviders>

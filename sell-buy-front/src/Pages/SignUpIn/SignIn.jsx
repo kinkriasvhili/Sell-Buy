@@ -17,7 +17,7 @@ export default function SignIn() {
   const navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
-    navigate("/email-confrimation");
+    navigate("/email-confrimation", { state: { from: "log" } });
   };
 
   return (

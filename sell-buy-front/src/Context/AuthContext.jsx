@@ -1,14 +1,38 @@
 import { createContext, useReducer } from "react";
 import { authReducer } from "../Reducers.jsx/AuthReducer";
-const AuthContext = createContext();
+export const AuthContext = createContext();
+
 export function AuthContextProvider({ children }) {
   const [authState, dispatch] = useReducer(authReducer, {
     isAuthenticated: false,
     token: null,
+    refreshToken: null,
     emailVerified: false,
     error: null,
   });
-  /**
+
+  const verifyEmail = () => {
+    console.log("verification");
+  };
+  const register = () => {
+    console.log("register");
+  };
+  const login = () => {
+    console.log("logIn");
+  };
+  const logout = () => {
+    return; //
+  };
+  return (
+    <AuthContext.Provider
+      value={{ authState, verifyEmail, register, login, logout }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+/**
   const verifyEmail = async (email) => {
     try {
       const res = await fetch("/api/auth/email_confrimation/", {
@@ -82,23 +106,3 @@ export function AuthContextProvider({ children }) {
     dispatch({ type: "LOGOUT" });
   };
    */
-  const verifyEmail = () => {
-    console.log("verification");
-  };
-  const register = () => {
-    console.log("register");
-  };
-  const login = () => {
-    console.log("logIn");
-  };
-  const logout = () => {
-    return; //
-  };
-  return (
-    <AuthContext.Provider
-      value={{ authState, verifyEmail, register, login, logout }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
-}

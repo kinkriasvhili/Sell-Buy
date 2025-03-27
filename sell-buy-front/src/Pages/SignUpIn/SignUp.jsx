@@ -1,5 +1,5 @@
 import styles from "./signUpIn.module.css";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Password, SignForm } from "../../Components/Ui/Inputs";
 import { FormButton } from "../../Components/Ui/Buttons";
@@ -18,7 +18,7 @@ export default function SignIn() {
   );
   const handleClick = (e) => {
     e.preventDefault();
-    navigate("/email-confrimation");
+    navigate("/email-confrimation", { state: { from: "reg" } });
   };
   return (
     <div className={styles.container}>

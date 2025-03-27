@@ -2,6 +2,7 @@ import styles from "./emailConfrimation.module.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FormButton } from "../../Components/Ui/Buttons";
+import { AuthContext } from "../../Context/AuthContext";
 
 export default function EmailConfirmation() {
   const [code, setCode] = useState("");

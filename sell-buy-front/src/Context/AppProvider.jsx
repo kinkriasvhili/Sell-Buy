@@ -11,8 +11,8 @@ import { ChatContextProvider } from "./ChatContext";
 
 const AppProviders = ({ children }) => {
   return (
-    <UserContextProvider>
-      <AuthContextProvider>
+    <AuthContextProvider>
+      <UserContextProvider>
         <ProductContextProvider>
           <CartContextProvider>
             <OrderContextProvider>
@@ -26,8 +26,8 @@ const AppProviders = ({ children }) => {
             </OrderContextProvider>
           </CartContextProvider>
         </ProductContextProvider>
-      </AuthContextProvider>
-    </UserContextProvider>
+      </UserContextProvider>
+    </AuthContextProvider>
   );
 };
 

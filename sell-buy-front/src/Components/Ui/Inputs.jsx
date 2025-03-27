@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faAsterisk,
+} from "@fortawesome/free-solid-svg-icons";
+// asterisk
 export function SignForm({
   label,
   type,
@@ -8,10 +13,20 @@ export function SignForm({
   name,
   handleChange,
   value,
+  className,
 }) {
+  const [inputFocus, setInputFocus] = useState(false);
   return (
     <div>
-      <label>{label}</label>
+      <label className={inputFocus ? className : ""}>
+        {label}{" "}
+        <FontAwesomeIcon
+          icon={faAsterisk}
+          size="1x"
+          className={inputFocus ? className : "asterisk-icon"}
+        />
+        :
+      </label>
       <input
         min={type === "number" ? "0" : undefined}
         type={type}
@@ -20,27 +35,50 @@ export function SignForm({
         onChange={(e) => {
           handleChange(e, name);
         }}
+        onFocusCapture={() => {
+          setInputFocus(true);
+        }}
         name={name}
       />
     </div>
   );
 }
 
-export function Password({ label, placeholder, name, handleChange, value }) {
+export function Password({
+  label,
+  placeholder,
+  name,
+  handleChange,
+  value,
+  className,
+}) {
   const [passwordSee, setPasswordSee] = useState(false);
+  const [inputFocus, setInputFocus] = useState(false);
 
   return (
     <div style={{ position: "relative" }}>
-      <label>{label}</label>
+      <label className={inputFocus ? className : "asterisk-icon"}>
+        {label}{" "}
+        <FontAwesomeIcon
+          icon={faAsterisk}
+          size="0.5x"
+          className={inputFocus ? className : "asterisk-icon"}
+        />
+        :
+      </label>
       <input
         type={passwordSee ? "text" : "password"}
         placeholder={placeholder}
         style={{ paddingRight: "30px" }}
         onChange={(e) => {
           handleChange(e, name);
+          setInputFocus(true);
         }}
         name={name}
         value={value[name]}
+        onFocusCapture={() => {
+          setInputFocus(true);
+        }}
       />
       <button
         type="button"

@@ -14,7 +14,7 @@ export function ButtonWIcon({ text, icon, iconSize, name, afterEffect }) {
   );
 }
 
-export function FormButton({ handleClick, type, className, text }) {
+export function FormButton({ handleClick, type, className, text, disabled }) {
   return (
     <button
       onClick={(e) => {
@@ -22,6 +22,11 @@ export function FormButton({ handleClick, type, className, text }) {
       }}
       type={type}
       className={className}
+      disabled={disabled}
+      style={{
+        opacity: disabled ? 0.5 : 1, // Lighter when disabled
+        cursor: disabled ? "not-allowed" : "pointer", // No pointer when disabled
+      }}
     >
       {text}
     </button>

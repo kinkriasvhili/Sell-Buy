@@ -9,7 +9,6 @@ export function SignForm({
   handleChange,
   value,
 }) {
-  console.log(value);
   return (
     <div>
       <label>{label}</label>
@@ -19,7 +18,7 @@ export function SignForm({
         placeholder={placeholder}
         value={value[name]}
         onChange={(e) => {
-          handleChange(e);
+          handleChange(e, name);
         }}
         name={name}
       />
@@ -38,7 +37,7 @@ export function Password({ label, placeholder, name, handleChange, value }) {
         placeholder={placeholder}
         style={{ paddingRight: "30px" }}
         onChange={(e) => {
-          handleChange(e);
+          handleChange(e, name);
         }}
         name={name}
         value={value[name]}

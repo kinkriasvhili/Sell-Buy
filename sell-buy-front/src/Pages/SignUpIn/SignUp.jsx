@@ -15,10 +15,80 @@ export default function SignIn() {
     password: "",
     repeat_password: "",
   });
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setSignUpData((prev) => ({ ...prev, [name]: value }));
+
+  const [inputsValidation, setInputsValidation] = useState({
+    isAgeValid: false,
+    isPasswordValid: false,
+    isEmailValid: false,
+    isNumberValid: false,
+    passwordMatch: false,
+  });
+
+  const validatePassword = (value) => {
+    return value.length >= 6;
   };
+  const validateEmail = (value) => {
+    // Basic email pattern
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(value);
+  };
+
+  const validAge = (value) => {
+    return Number(value) >= 18;
+  };
+
+  const validNumber = (value) => {
+    // Regular expression to check if the number is 9 digits and starts with 5
+    const pattern = /^5\d{8}$/;
+    // Explanation:
+    // ^      - Start of the string
+    // 5      - The number must start with '5'
+    // \d{8}  - Followed by exactly 8 digits (total 9 digits)
+    // $      - End of the string
+
+    return pattern.test(value); // Returns true if the number is valid, false otherwise
+  };
+  const handleChange = (e, inputName) => {
+    const { name, value } = e.target;
+
+    // Update signup data
+    setSignUpData((prev) => ({ ...prev, [name]: value }));
+
+    // Perform validation based on the input name
+    if (inputName === "password") {
+      setInputsValidation((prev) => ({
+        ...prev,
+        isPasswordValid: validatePassword(value),
+      }));
+      console.log("Password validation:", validatePassword(value));
+    } else if (inputName === "email") {
+      setInputsValidation((prev) => ({
+        ...prev,
+        isEmailValid: validateEmail(value),
+      }));
+      console.log("Email validation:", validateEmail(value));
+    } else if (inputName === "age") {
+      setInputsValidation((prev) => ({
+        ...prev,
+        isAgeValid: validAge(value),
+      }));
+      console.log("Age validation:", validAge(value));
+    } else if (inputName === "repeat_password") {
+      setInputsValidation((prev) => ({
+        ...prev,
+        passwordMatch: value === signupData.password,
+      }));
+      console.log("Passwords match:", value === signupData.password);
+    } else if ((inputName = "phone_number")) {
+      setInputsValidation((prev) => ({
+        ...prev,
+        passwordMatch: validNumber(value),
+      }));
+      console.log("valid number:", validNumber(value));
+    }
+  };
+
+  //
   const navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
@@ -40,7 +110,7 @@ export default function SignIn() {
           />
           <SignForm
             label={"Email:"}
-            type={"text"}
+            type={"email"}
             placeholder={"Mail"}
             name="email"
             handleChange={handleChange}

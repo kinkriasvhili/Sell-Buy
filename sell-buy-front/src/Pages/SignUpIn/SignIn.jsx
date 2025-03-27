@@ -1,10 +1,11 @@
 import styles from "./signUpIn.module.css";
-import React from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { SignForm } from "../../Components/Ui/Inputs";
+import { SignForm, Password } from "../../Components/Ui/Inputs";
 import { FormButton } from "../../Components/Ui/Buttons";
 import { SignFormRightSideSvg } from "../../Components/Ui/SvgAnimations";
 import { useNavigate } from "react-router-dom";
+
 export default function SignIn() {
   const navigate = useNavigate();
   const handleClick = (e) => {
@@ -17,12 +18,8 @@ export default function SignIn() {
         <h2>Sign In</h2>
         <span>Please login to continue yo your account</span>
         <form action="">
-          <SignForm label={"Email:"} type={"text"} placholder={"Mail"} />
-          <SignForm
-            label={"Password:"}
-            type={"password"}
-            placholder={"Password"}
-          />
+          <SignForm label={"Email:"} type={"text"} placeholder={"Mail"} />
+          <Password label={"Password:"} placeholder={"Password"} />
           <FormButton
             handleClick={handleClick}
             type="submit"

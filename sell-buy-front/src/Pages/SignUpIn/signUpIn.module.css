@@ -8,7 +8,7 @@
   padding: 2vw;
   overflow-x: hidden;
   min-height: 75vh;
-  max-height: 80vh;
+  max-height: 85vh;
   overflow: hidden;
   align-items: center;
 }
@@ -27,7 +27,22 @@
 .registerForm {
   position: relative;
   gap: 0;
-  margin-bottom: 20px;
+}
+.registerForm form {
+  margin: 0 !important;
+  margin-top: 10px !important;
+}
+.registerForm input {
+  max-height: 50px !important;
+}
+.registerForm h2 {
+  font-size: 2rem !important;
+}
+.registerForm .signButton {
+  max-height: 10px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .leftSide h2 {
   font-size: 2.5rem;
@@ -62,6 +77,38 @@
   margin-left: 2px;
   color: black;
 }
+.tripleInp {
+  display: flex;
+  flex-direction: row !important;
+  gap: 10px;
+}
+.tripleInp
+  div:nth-last-child(1)
+  input[type="number"]::-webkit-inner-spin-button,
+.tripleInp
+  div:nth-last-child(1)
+  input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.signButton:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.signButton::before {
+  background-color: white;
+}
+.linkSpam {
+  font-size: 16px;
+}
+.linkSpam a {
+  color: var(--blue-color);
+  text-decoration: underline;
+  transition: 0.1s;
+}
+.linkSpam a:hover {
+  color: var(--primary-color);
+}
 
 .rightSide {
   flex-direction: column;
@@ -90,23 +137,4 @@
   text-align: center;
   border: 2px dashed var(--blue-color);
   margin-bottom: -10px;
-}
-
-.signButton:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-}
-.signButton::before {
-  background-color: white;
-}
-.linkSpam {
-  font-size: 16px;
-}
-.linkSpam a {
-  color: var(--blue-color);
-  text-decoration: underline;
-  transition: 0.1s;
-}
-.linkSpam a:hover {
-  color: var(--primary-color);
 }

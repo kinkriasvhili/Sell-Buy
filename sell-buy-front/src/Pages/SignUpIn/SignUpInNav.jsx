@@ -16,7 +16,7 @@ export default function SignUpInNav({ styles }) {
     }
   }, [location]);
   return (
-    <nav>
+    <nav style={{ paddingBottom: "0px" }}>
       <div className={`${styles.leftCont} mainContainer`}>
         <Link to={"/"}>
           <span className={styles.logo}>S&B</span>

@@ -5,84 +5,14 @@ import { Password, SignForm } from "../../Components/Ui/Inputs";
 import { FormButton } from "../../Components/Ui/Buttons";
 import { SignFormRightSideSvg } from "../../Components/Ui/SvgAnimations";
 import { useNavigate } from "react-router-dom";
+import { useControlForm } from "./ControlForm";
 export default function SignIn() {
-  const [signupData, setSignUpData] = useState({
-    user_name: "",
-    email: "",
-    age: "",
-    city: "",
-    phone_number: "",
-    password: "",
-    repeat_password: "",
-  });
+  const { signupData, inputsValidation, handleChange } = useControlForm();
+  const navigate = useNavigate();
 
-  const [inputsValidation, setInputsValidation] = useState({
-    isAgeValid: false,
-    isPasswordValid: false,
-    isEmailValid: false,
-    isNumberValid: false,
-    isUserNameValid: false,
-    isCityValid: false,
-    passwordMatch: false,
-  });
-
-  const validatePassword = (value) => value.length >= 6;
-  const validateUserName = (value) => value.length >= 4;
-  const validateCity = (value) => value.length >= 1;
-  const validateEmail = (value) => {
-    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return pattern.test(value);
-  };
-
-  const validAge = (value) => Number(value) >= 18 && Number(value) <= 80;
-
-  const validNumber = (value) => {
-    const pattern = /^5\d{8}$/;
-    return pattern.test(value);
-  };
-
-  const handleChange = (e, inputName) => {
-    let { name, value } = e.target;
-
-    if (name === "age") {
-      value = Number(value);
-      if (isNaN(value)) value = "";
-      else value = Math.max(0, Math.min(value, 80));
-    }
-    value == 0 ? (value = "") : "";
-    setSignUpData((prev) => ({ ...prev, [name]: value }));
-
-    setInputsValidation((prev) => ({
-      ...prev,
-      isUserNameValid:
-        inputName == "user_name"
-          ? validateUserName(value)
-          : prev.isUserNameValid,
-      isCityValid: inputName == "city" ? validateCity(value) : prev.isCityValid,
-      isPasswordValid:
-        inputName === "password"
-          ? validatePassword(value)
-          : prev.isPasswordValid,
-      isEmailValid:
-        inputName === "email" ? validateEmail(value) : prev.isEmailValid,
-      isAgeValid: inputName === "age" ? validAge(value) : prev.isAgeValid,
-      isNumberValid:
-        inputName === "phone_number" ? validNumber(value) : prev.isNumberValid,
-
-      passwordMatch:
-        inputName === "repeat_password"
-          ? value === signupData.password
-          : prev.passwordMatch,
-    }));
-
-    // Debugging logs
-    console.log(inputsValidation);
-  };
   const makeClass = (isValid) => {
     return !isValid ? styles.inputRed : "";
   };
-  //
-  const navigate = useNavigate();
   const allValid = Object.values(inputsValidation).every(
     (value) => value === true
   );

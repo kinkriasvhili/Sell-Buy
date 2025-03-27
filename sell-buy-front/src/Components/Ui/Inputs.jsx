@@ -1,18 +1,15 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-export function SignForm({ label, type, placeholder }) {
-  const [value, setValue] = useState("");
-
-  const handleChange = (e) => {
-    const newValue = e.target.value;
-    if (type === "number") {
-      setValue(newValue === "" ? "" : Math.max(0, Number(newValue)));
-    } else {
-      setValue(newValue);
-    }
-  };
-
+export function SignForm({
+  label,
+  type,
+  placeholder,
+  name,
+  handleChange,
+  value,
+}) {
+  console.log(value);
   return (
     <div>
       <label>{label}</label>
@@ -20,14 +17,17 @@ export function SignForm({ label, type, placeholder }) {
         min={type === "number" ? "0" : undefined}
         type={type}
         placeholder={placeholder}
-        value={value}
-        onChange={handleChange}
+        value={value[name]}
+        onChange={(e) => {
+          handleChange(e);
+        }}
+        name={name}
       />
     </div>
   );
 }
 
-export function Password({ label, placeholder }) {
+export function Password({ label, placeholder, name, handleChange, value }) {
   const [passwordSee, setPasswordSee] = useState(false);
 
   return (
@@ -37,6 +37,11 @@ export function Password({ label, placeholder }) {
         type={passwordSee ? "text" : "password"}
         placeholder={placeholder}
         style={{ paddingRight: "30px" }}
+        onChange={(e) => {
+          handleChange(e);
+        }}
+        name={name}
+        value={value[name]}
       />
       <button
         type="button"

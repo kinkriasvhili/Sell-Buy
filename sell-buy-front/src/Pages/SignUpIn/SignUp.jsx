@@ -6,6 +6,19 @@ import { FormButton } from "../../Components/Ui/Buttons";
 import { SignFormRightSideSvg } from "../../Components/Ui/SvgAnimations";
 import { useNavigate } from "react-router-dom";
 export default function SignIn() {
+  const [signupData, setSignUpData] = useState({
+    user_name: "",
+    email: "",
+    age: "",
+    city: "",
+    phone_number: "",
+    password: "",
+    repeat_password: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSignUpData((prev) => ({ ...prev, [name]: value }));
+  };
   const navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
@@ -21,19 +34,58 @@ export default function SignIn() {
             label={"UserName:"}
             type={"text"}
             placeholder={"UserName"}
+            name="user_name"
+            handleChange={handleChange}
+            value={signupData}
           />
-          <SignForm label={"Email:"} type={"text"} placeholder={"Mail"} />
+          <SignForm
+            label={"Email:"}
+            type={"text"}
+            placeholder={"Mail"}
+            name="email"
+            handleChange={handleChange}
+            value={signupData}
+          />
           <div className={styles.tripleInp}>
-            <SignForm label={"Age:"} type={"number"} placeholder={"Age"} />
-            <SignForm label={"City:"} type={"text"} placeholder={"City"} />
+            <SignForm
+              label={"Age:"}
+              type={"number"}
+              placeholder={"Age"}
+              name="age"
+              handleChange={handleChange}
+              value={signupData}
+            />
+            <SignForm
+              label={"City:"}
+              type={"text"}
+              placeholder={"City"}
+              name="city"
+              handleChange={handleChange}
+              value={signupData}
+            />
             <SignForm
               label={"Phone Number:"}
               type={"number"}
               placeholder={"Phone Number"}
+              name="phone_number"
+              handleChange={handleChange}
+              value={signupData}
             />
           </div>
-          <Password label={"Password:"} placeholder={"Password"} />
-          <Password label="Repeat Password:" placeholder="Repeat Password" />
+          <Password
+            label={"Password:"}
+            placeholder={"Password"}
+            name="password"
+            handleChange={handleChange}
+            value={signupData}
+          />
+          <Password
+            label="Repeat Password:"
+            placeholder="Repeat Password"
+            name="repeat_password"
+            handleChange={handleChange}
+            value={signupData}
+          />
           <FormButton
             handleClick={handleClick}
             type="submit"

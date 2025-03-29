@@ -17,9 +17,10 @@ export default function SignIn() {
   const navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
-    navigate("/email-confrimation", { state: { from: "log" } });
+    navigate("/email-confrimation", {
+      state: { from: "log", data: signupData.email },
+    });
   };
-
   return (
     <div className={styles.container}>
       <div className={styles.leftSide}>

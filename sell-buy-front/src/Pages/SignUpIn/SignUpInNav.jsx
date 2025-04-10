@@ -28,7 +28,7 @@ export default function SignUpInNav({ styles }) {
             text={`${toPage.text}`}
             icon={faUser}
             iconSize="1x"
-            name="wht-btn"
+            name={["wht-btn", "logregbtn"]}
             styles={styles}
           />
         </Link>

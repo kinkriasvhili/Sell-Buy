@@ -44,7 +44,7 @@ export default function Nav() {
               <ButtonWIcon
                 icon={faHeart}
                 iconSize="1x"
-                name="linked-btn"
+                name={["linked-btn", "favbtn"]}
                 styles={styles}
                 afterEffect="favoriteBtn"
               />
@@ -53,7 +53,7 @@ export default function Nav() {
               <ButtonWIcon
                 icon={faShoppingCart}
                 iconSize="1x"
-                name="linked-btn"
+                name={["linked-btn", "cartbtn"]}
                 styles={styles}
                 afterEffect="cartBtn"
               />
@@ -68,7 +68,7 @@ export default function Nav() {
                 text="Sign In"
                 icon={faUser}
                 iconSize="1x"
-                name="wht-btn"
+                name={["wht-btn", "signin"]}
                 styles={styles}
               />
             </Link>

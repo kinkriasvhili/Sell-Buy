@@ -4,7 +4,7 @@ import styles from "./button.module.css";
 export function ButtonWIcon({ text, icon, iconSize, name, afterEffect }) {
   return (
     <button
-      className={`${name} flex-center 
+      className={`${name?.[0] ? name?.[0] : name} flex-center 
       ${name == "wht-btn" ? styles.signIn : ""} 
       ${styles[afterEffect]}`}
     >

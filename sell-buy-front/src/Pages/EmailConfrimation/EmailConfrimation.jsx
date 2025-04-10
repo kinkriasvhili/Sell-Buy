@@ -21,9 +21,11 @@ export default function EmailConfirmation() {
         setUser(filteredUserData);
         // setUser and we need to post it on fetch from here.
         // get user from fetch
+        // set authentication
       } else if (from == "log") {
         console.log(location.state.data);
-        //sent email to data and get user from fetch
+        // sent email to data and get user from fetch
+        // set authentication
       }
       navigate("/");
     } else {

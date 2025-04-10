@@ -1,9 +1,9 @@
 import styles from "./signUpIn.module.css";
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { SignForm, Password } from "../../Components/Ui/Inputs";
-import { FormButton } from "../../Components/Ui/Buttons";
-import { SignFormRightSideSvg } from "../../Components/Ui/SvgAnimations";
+import { SignForm, Password } from "../../Components/Ui/inputs/Inputs";
+import { FormButton } from "../../Components/Ui/buttons/Buttons";
+import { SignFormRightSideSvg } from "../../Components/Ui/animations/SvgAnimations";
 import { useNavigate } from "react-router-dom";
 import { useControlForm } from "./ControlForm";
 
@@ -48,7 +48,7 @@ export default function SignIn() {
             handleClick={handleClick}
             type="submit"
             className={`${styles.signButton} wht-btn `}
-            text={"Create Account"}
+            text={"Log In"}
             disabled={!isLoginValid}
           />
         </form>

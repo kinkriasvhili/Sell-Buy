@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { ButtonWIcon } from "../../Components/Ui/Buttons";
+import { ButtonWIcon } from "../../Components/Ui/buttons/Buttons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 export default function SignUpInNav({ styles }) {

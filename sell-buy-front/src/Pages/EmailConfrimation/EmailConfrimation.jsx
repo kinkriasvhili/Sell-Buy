@@ -1,5 +1,5 @@
 import styles from "./emailConfrimation.module.css";
-import { FormButton } from "../../Components/Ui/Buttons";
+import { FormButton } from "../../Components/Ui/buttons/Buttons";
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";

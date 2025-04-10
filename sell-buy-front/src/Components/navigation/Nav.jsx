@@ -8,7 +8,7 @@ import {
   faUser,
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
-import { ButtonWIcon } from "../Ui/Buttons";
+import { ButtonWIcon } from "../Ui/buttons/Buttons";
 import { useEffect, useState } from "react";
 import SignUpInNav from "../../Pages/SignUpIn/SignUpInNav";
 

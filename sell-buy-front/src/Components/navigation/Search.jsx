@@ -1,5 +1,5 @@
 import styles from "./nav.module.css";
-import { ButtonWIcon } from "../Ui/Buttons";
+import { ButtonWIcon } from "../Ui/buttons/Buttons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 export default function Search() {

@@ -49,7 +49,6 @@ export function useControlForm() {
 
       // Get the last character
       const lastChar = value[value.length - 1];
-      console.log(value.length > 13);
       // If it's not a number and not part of the prefix, block input
       if (
         (value.length > base.length && isNaN(lastChar)) ||

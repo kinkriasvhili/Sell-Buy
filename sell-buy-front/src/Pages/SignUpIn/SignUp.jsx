@@ -6,9 +6,26 @@ import { FormButton } from "../../Components/Ui/buttons/Buttons";
 import { SignFormRightSideSvg } from "../../Components/Ui/animations/SvgAnimations";
 import { useNavigate } from "react-router-dom";
 import { useControlForm } from "./ControlForm";
+import { useMutation } from "@tanstack/react-query";
+import { postEmailOrCodeConfirmation } from "../../fetchData/postData";
+
 export default function SignIn() {
   const { signupData, inputsValidation, handleChange } = useControlForm();
   const navigate = useNavigate();
+  const createEmailMutation = useMutation({
+    mutationFn: (data) => {
+      console.log(data);
+      postEmailOrCodeConfirmation(data);
+    },
+    onSuccess: () => {
+      navigate("/email-confrimation", {
+        state: { from: "reg", data: signupData },
+      });
+    },
+    onError: (error) => {
+      console.log(error.message);
+    },
+  });
 
   const makeClass = (isValid) => {
     return !isValid ? styles.inputRed : "";
@@ -18,8 +35,9 @@ export default function SignIn() {
   );
   const handleClick = (e) => {
     e.preventDefault();
-    navigate("/email-confrimation", {
-      state: { from: "reg", data: signupData },
+
+    createEmailMutation.mutate({
+      email: signupData.email,
     });
   };
   return (
@@ -110,6 +128,7 @@ export default function SignIn() {
           title="Welcome!"
           svgClass={styles.svgContainer}
         />
+        {createEmailMutation.isPending ? <span>...Loading</span> : ""}
       </div>
     </div>
   );

@@ -32,6 +32,10 @@ export default function EmailConfirmation() {
       setError("Invalid confirmation code. Please try again.");
     }
   };
+
+  useEffect(() => {
+    // console.log(userState);
+  }, [userState, setUser]);
   return (
     <div className={styles.container}>
       <div className={styles.box}>

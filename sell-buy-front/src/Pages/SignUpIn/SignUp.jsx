@@ -67,7 +67,7 @@ export default function SignIn() {
             />
             <SignForm
               label={"Phone Number"}
-              type={"number"}
+              type={"text"}
               placeholder={"Phone Number"}
               name="phone_number"
               handleChange={handleChange}

@@ -6,7 +6,7 @@ export function useControlForm() {
     email: "",
     age: "",
     city: "",
-    phone_number: "",
+    phone_number: "+9955",
     password: "",
     repeat_password: "",
   });
@@ -26,7 +26,7 @@ export function useControlForm() {
   const validateCity = (value) => value.length >= 1;
   const validateEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   const validAge = (value) => Number(value) >= 18 && Number(value) <= 80;
-  const validNumber = (value) => /^5\d{8}$/.test(value);
+  const validNumber = (value) => value.length == 13;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -34,6 +34,30 @@ export function useControlForm() {
       value = isNaN(Number(value))
         ? ""
         : Math.max(0, Math.min(Number(value), 80));
+    } else if (name == "phone_number") {
+      const base = "+9955";
+
+      //check base
+      if (value.length < base.length) {
+        value = base;
+      }
+
+      // If value doesn't start with +995, force it
+      if (!value.startsWith(base)) {
+        return; // ignore invalid attempts to delete/replace base
+      }
+
+      // Get the last character
+      const lastChar = value[value.length - 1];
+      console.log(value.length > 13);
+      // If it's not a number and not part of the prefix, block input
+      if (
+        (value.length > base.length && isNaN(lastChar)) ||
+        value.length > 13
+      ) {
+        console.log("not a number");
+        return;
+      }
     }
     if (value === "0") value = "";
 
